@@ -36,17 +36,23 @@ var liriBot = {
           .search({ type: 'track', query: songName, limit: 1 })
           .then(function(response) {
             var songInfo = response.tracks.items;
-
+            console.log("-----------------SONG SEARCH--------------------------- ");
             console.log("Title: "+songInfo[0].name);
             console.log("Artist(s): "+songInfo[0].album.artists[0].name);
             console.log("Album: "+songInfo[0].album.name);
             console.log("Preview: "+songInfo[0].preview_url);
+            liriBot.logOutput("Title: "+songInfo[0].name);
+            liriBot.logOutput("Title: "+songInfo[0].name);
+            liriBot.logOutput("Artist(s): "+songInfo[0].album.artists[0].name);
+            liriBot.logOutput("Album: "+songInfo[0].album.name);
+            liriBot.logOutput("Preview: "+songInfo[0].preview_url);
 
           })
           .catch(function(err) {
             console.log(err);
           });
-        },
+
+  },
 
   movieSearch: function() {
 
@@ -56,14 +62,12 @@ var liriBot = {
     // Then run a request to the OMDB API with the movie specified
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
-    // This line is just to help us debug against the actual URL.
-    console.log(queryUrl);
-
     request(queryUrl, function(error, response, body) {
 
       // If the request is successful
       if (!error && response.statusCode === 200) {
-
+        
+        console.log("----------------MOVIE SEARCH------------------ ")
         console.log("Title: " + JSON.parse(body).Title);
         console.log("Release Year: " + JSON.parse(body).Year);
         console.log("IMBD Rating: " + JSON.parse(body).Ratings[0].Value);
@@ -72,28 +76,48 @@ var liriBot = {
         console.log("Plot: " + JSON.parse(body).Plot);
         console.log("Language: " + JSON.parse(body).Language);
         console.log("Produced In: " + JSON.parse(body).Country);
+        liriBot.logOutput("---------------------MOVIE SEARCH-------------------------- ")
+        liriBot.logOutput("Title: " + JSON.parse(body).Title);
+        liriBot.logOutput("Release Year: " + JSON.parse(body).Year);
+        liriBot.logOutput("IMBD Rating: " + JSON.parse(body).Ratings[0].Value);
+        liriBot.logOutput("Rotten Tomato Score: " + JSON.parse(body).Ratings[1].Value);
+        liriBot.logOutput("Actors: " + JSON.parse(body).Actors);
+        liriBot.logOutput("Plot: " + JSON.parse(body).Plot);
+        liriBot.logOutput("Language: " + JSON.parse(body).Language);
+        liriBot.logOutput("Produced In: " + JSON.parse(body).Country);
       }
     })
   },
 
+  logOutput: function(update) {
+    fs.appendFile('./log.txt', update+"\n", function (err) {
+      if (err) throw err;
+      console.log('Log File Updated!');
+    });
+  },
+
+  clearLog: function() {
+    fs.truncate('./log.txt', 0, function(){console.log('done')})
+  },
 };
 // Shows last 20 tweets and when they were created at in your terminal/bash window.
 
 if (command === "my-tweets") {
 
-  var params = {zenjduke: 'nodejs'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response) {
-    if (!error) {
-      for (var i = 0; i<20; i++){
-      console.log("Tweet: "+tweets[i].text)
-      var date = tweets[i].created_at;
-      var newDate = date.split(" ");
-      var simpleDate = newDate[0]+ " " + newDate[1]+ " " + newDate[2]+ " " + newDate[5];
-      console.log("Tweeted: "+simpleDate);
+  console.log("-------------------Tweets from @zenjduke--------------------- ")
+  
+    var params = {zenjduke: 'nodejs'};
+    client.get('statuses/user_timeline', params, function(error, tweets, response) {
+      if (!error) {
+        for (var i = 0; i<20; i++){
+        console.log("Tweet: "+tweets[i].text)
+        var date = tweets[i].created_at;
+        var newDate = date.split(" ");
+        var simpleDate = newDate[0]+ " " + newDate[1]+ " " + newDate[2]+ " " + newDate[5];
+        console.log("Tweeted: "+simpleDate);
+        }
       }
-    }
-  });
-
+    });
 }
 
 else if (command === "spotify-this-song") {
@@ -155,5 +179,9 @@ else if (command === "do-what-it-says") {
     }
   });
 
+}
+
+else if (command === "clear-log") {
+  liriBot.clearLog();
 };
 
