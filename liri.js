@@ -41,6 +41,8 @@ var liriBot = {
             console.log("Artist(s): "+songInfo[0].album.artists[0].name);
             console.log("Album: "+songInfo[0].album.name);
             console.log("Preview: "+songInfo[0].preview_url);
+            liriBot.logOutput(" ");
+            liriBot.logOutput("-----------------SONG SEARCH--------------------------- ");
             liriBot.logOutput("Title: "+songInfo[0].name);
             liriBot.logOutput("Title: "+songInfo[0].name);
             liriBot.logOutput("Artist(s): "+songInfo[0].album.artists[0].name);
@@ -76,6 +78,7 @@ var liriBot = {
         console.log("Plot: " + JSON.parse(body).Plot);
         console.log("Language: " + JSON.parse(body).Language);
         console.log("Produced In: " + JSON.parse(body).Country);
+        liriBot.logOutput(" ");
         liriBot.logOutput("---------------------MOVIE SEARCH-------------------------- ")
         liriBot.logOutput("Title: " + JSON.parse(body).Title);
         liriBot.logOutput("Release Year: " + JSON.parse(body).Year);
@@ -97,24 +100,27 @@ var liriBot = {
   },
 
   clearLog: function() {
-    fs.truncate('./log.txt', 0, function(){console.log('done')})
+    fs.truncate('./log.txt', 0, function(){console.log("Log cleared.")})
   },
 };
 // Shows last 20 tweets and when they were created at in your terminal/bash window.
 
 if (command === "my-tweets") {
 
-  console.log("-------------------Tweets from @zenjduke--------------------- ")
-  
-    var params = {zenjduke: 'nodejs'};
+  console.log("-------------------Latest Tweets--------------------- ");
+  liriBot.logOutput(" ");
+  liriBot.logOutput("-------------------Latest Tweets--------------------- ");
+  var params = {zenjduke: 'nodejs'};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (!error) {
         for (var i = 0; i<20; i++){
         console.log("Tweet: "+tweets[i].text)
+        liriBot.logOutput("Tweet: "+tweets[i].text);
         var date = tweets[i].created_at;
         var newDate = date.split(" ");
         var simpleDate = newDate[0]+ " " + newDate[1]+ " " + newDate[2]+ " " + newDate[5];
         console.log("Tweeted: "+simpleDate);
+        liriBot.logOutput("Tweeted: "+simpleDate);
         }
       }
     });
