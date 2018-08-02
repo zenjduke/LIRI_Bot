@@ -10,6 +10,8 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 1. `npm run tweets`
 
    * This will show your last 20 tweets and when they were created at in your terminal/bash window.
+   
+   <img width="716" alt="liritweets" src="https://user-images.githubusercontent.com/35474050/43597989-42544866-9649-11e8-8f82-15a1b2c7015f.png">
 
 2. `npm run song '<song name here>'`
 
