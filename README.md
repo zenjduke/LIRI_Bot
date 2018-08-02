@@ -11,7 +11,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
    * This will show your last 20 tweets and when they were created at in your terminal/bash window.
    
-   <img width="716" alt="liritweets" src="https://user-images.githubusercontent.com/35474050/43597989-42544866-9649-11e8-8f82-15a1b2c7015f.png">
+   <img width="815" alt="liritweets" src="https://user-images.githubusercontent.com/35474050/43597989-42544866-9649-11e8-8f82-15a1b2c7015f.png">
 
 2. `npm run song '<song name here>'`
 
@@ -27,6 +27,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
    * If no song is provided then the program will default to "The Sign" by Ace of Base.
   
+  <img width="815" alt="lirisong" src="https://user-images.githubusercontent.com/35474050/43598032-5e8e60f2-9649-11e8-8662-8b993d57d54f.png">
 
 3. `npm run movie '<movie name here>'`
 
