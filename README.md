@@ -27,7 +27,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
    * If no song is provided then the program will default to "The Sign" by Ace of Base.
   
-  <img width="815" alt="lirisong" src="https://user-images.githubusercontent.com/35474050/43598032-5e8e60f2-9649-11e8-8662-8b993d57d54f.png">
+     <img width="815" alt="lirisong" src="https://user-images.githubusercontent.com/35474050/43598032-5e8e60f2-9649-11e8-8662-  8b993d57d54f.png">
 
 3. `npm run movie '<movie name here>'`
 
@@ -46,7 +46,8 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
    * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
      
-
+    <img width="723" alt="lirimovie" src="https://user-images.githubusercontent.com/35474050/43598081-7fd0a9aa-9649-11e8-9b95-509e895352e0.png">
+  
 4. `npm run do-it`
    
    * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
