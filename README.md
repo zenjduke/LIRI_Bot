@@ -7,11 +7,11 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 ### What Each Command Does
 
-1. `node liri.js tweets`
+1. `npm run tweets`
 
    * This will show your last 20 tweets and when they were created at in your terminal/bash window.
 
-2. `node liri.js song '<song name here>'`
+2. `npm run song '<song name here>'`
 
    * This will show the following information about the song in your terminal/bash window
      
@@ -26,7 +26,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
    * If no song is provided then the program will default to "The Sign" by Ace of Base.
   
 
-3. `node liri.js movie '<movie name here>'`
+3. `npm run movie '<movie name here>'`
 
    * This will output the following information to your terminal/bash window:
 
@@ -44,7 +44,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
    * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
      
 
-4. `node liri.js do-what-it-says`
+4. `npm run do-it`
    
    * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
      
