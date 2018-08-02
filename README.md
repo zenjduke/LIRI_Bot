@@ -27,7 +27,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
    * If no song is provided then the program will default to "The Sign" by Ace of Base.
   
-     <img width="815" alt="lirisong" src="https://user-images.githubusercontent.com/35474050/43598032-5e8e60f2-9649-11e8-8662-  8b993d57d54f.png">
+     <img width="815" alt="lirisong" src="https://user-images.githubusercontent.com/35474050/43598032-5e8e60f2-9649-11e8-8662-8b993d57d54f.png">
 
 3. `npm run movie '<movie name here>'`
 
